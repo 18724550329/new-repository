@@ -1,3 +1,79 @@
+# 4.1
+
+![手写笔记1.1](C://Users//Honey//Desktop//sxbj1_1.jpg "悬停标题")
+
+![手写笔记1.2](C://Users//Honey//Desktop//sxbj1_2.jpg "悬停标题")
+
+---
+---
+# 4.2
+## 设备认证
+### 1.如何让网站的账户与设备绑定，后续完成代码的管理，上传下载
+	
+	git init //创建本地仓库 `后续对仓库的操作，都要在仓库位置（master）`
+
+	git config --list //查看git的配置文件
+	
+	git config --global user.email ”邮箱“
+
+	git config --global user.name ”用户名“
+
+	ssh-keygen -t rsa -C ”注册邮箱“ //创建本地密文
+
+去对应的目录查找密文文件
+
+	rsa.pub 复制密文，粘贴 settings->SSH`（远程访问）` key and GPG->new ssh key->粘贴
+
+	ssh -T git@github.com//测试关联是否成功
+
+### 2.为仓库起别名，定位目标仓库，后续上传
+
+	git remote add origin ”ssh地址" //为ssh仓库地址创建别名为origin
+
+	git remote remove origin //删除origin别名
+
+	git remote add origin “ssh地址” //为ssh仓库地址创建别名为origin
+
+## 本地设备与云端仓库的交互逻辑
+
+![手写笔记1.3](C://Users//Honey//Desktop//sxbj1_3.jpg "悬停标题")
+
+git add //添加内容
+
+git rm //删除本地文件并删除仓库数据
+
+git restore //恢复被删除（仓库存在）
+
+## 代码更新的依赖关系被破坏
+
+	本地内容要比云端新，完成更新替换，但是如果直接修改云端内容，导致，本地内容无法再次提交
+
+先拉取git pull 云端内容 与本地内容合并或操作，而后再次推即可
+
+	git pull --rebase origin master
+
+	git rebase --skip “忽略本地内容 保留云端内容”
+
+	git rebase --abort “忽略本地内容 保留云端内容”
+
+	git rebase --continue “忽略本地内容 保留云端内容”
+
+## 下载开源代码
+
+	git clone “https仓库地址” //下载开源项目code资源
+
+## 分支Branch
+
+关于分支的相关命令，创建分支，选择分支，合并分支等等
+
+## Markdown 语言
+
+	github可以编写readme，文本修饰语言
+
+---
+---
+# 4.3
+
 Markdown，文本修饰语言，用特殊符号修饰正文效果<br>
 
 ## 标题修饰符\#
